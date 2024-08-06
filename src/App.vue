@@ -6,26 +6,41 @@ import content from './components/content.vue'
 </script>
 
 <template>
-  <div class="container text-center my-5">
-    <div class="row align-items-start">
-      <div class="col-9">
-        <content />
-      </div>
-      <div class="col-3">
-        <sidebar />
+  <div class="body">
+    <div class="holder text-center ">
+      <div class="row align-items-start">
+        <div class="col-8">
+          <content />
+        </div>
+        <div class="col-4 border border-danger my-5">
+          <sidebar />
+        </div>
       </div>
     </div>
   </div>
 </template>
 
 <style>
-* {
-  border: 0;
+*{
+  margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
+.body {
+  background-color: rgb(244, 234, 222);
+  margin: 0;
+  border: none;
+  border: 1px solid transparent;
+}
 
-.container {
-  border: 1px solid red;
+
+.holder {
+  width: 75%;
+  margin: 0 auto;
+  background-color: rgb(251, 222, 187) !important;
+  padding: 30px;
+  border-radius: 20px;
+
+  margin: 20px auto;
 }
 </style>
