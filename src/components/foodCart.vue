@@ -9,7 +9,9 @@
             <p class="text-danger fw-bolder price">${{ food.price }}</p>
         </div>
         <div>
-            <button class="cart-btn">Add To Cart</button>
+            <button @click="addToStore({ name: props.food.name, price: props.food.price, quantity: 1 })"
+                class="cart-btn">Add To
+                Cart</button>
         </div>
     </div>
 </template>
@@ -17,12 +19,17 @@
 <script setup lang="ts">
 import type { IFood } from '@/types/food';
 import { ref } from 'vue';
-
+import { useOrderStore } from '@/stores/orders';
+import type { IOrder } from '@/types/order';
 const hover = ref<boolean>(false)
-
+const store = useOrderStore()
 const props = defineProps<{
     food: IFood
 }>()
+
+const addToStore = (order: IOrder) => {
+    store.addToOrders(order)
+}
 
 </script>
 
@@ -67,7 +74,8 @@ const props = defineProps<{
     width: 100%;
     height: 100%;
 }
-.cart-btn{
+
+.cart-btn {
     background-color: rgb(208, 71, 71);
     border: none;
     padding: 15px 30px;
@@ -75,17 +83,3 @@ const props = defineProps<{
     border-radius: 20px;
 }
 </style>
-
-
-
-
-<!--  <div @mouseover="hover = true" @mouseleave="hover = false" class="card m-2 w-25" :class="{ border: hover }">
-        <img :src="food.image.desktop" alt="...">
-        <div class=" text-start">
-            <p class="category">{{ food.category }}</p>
-            <p class="name">{{ food.name }}.</p>
-            <p class="text-danger fw-bolder price">${{ food.price }}</p>
-        </div>
-    </div>
-
--->

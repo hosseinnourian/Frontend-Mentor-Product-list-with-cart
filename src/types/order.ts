@@ -1,4 +1,5 @@
 export interface IOrder {
     name: string;
-    price: number
+    price: number;
+    quantity : number
 }

@@ -12,7 +12,7 @@ import content from './components/content.vue'
         <div class="col-8">
           <content />
         </div>
-        <div class="col-4 border border-danger my-5">
+        <div class="col-4 my-5">
           <sidebar />
         </div>
       </div>

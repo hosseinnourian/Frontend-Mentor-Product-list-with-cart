@@ -1,4 +1,3 @@
-import { ref } from 'vue'
 import { defineStore } from 'pinia'
 import type { IOrder } from '@/types/order'
 
@@ -10,7 +9,23 @@ export const useOrderStore = defineStore('orders', {
   },
   actions: {
     addToOrders(order: IOrder) {
-      this.orderList.push(order)
+      const existed = this.orderList.find((item) => {
+        return item.name === order.name
+      })
+      if (existed != null) {
+        existed.price += existed.price
+        ++existed.quantity
+      }
+      else {
+        this.orderList.push(order)
+      }
+    }
+  },
+  getters: {
+    getTotalPrice(): number {
+      return this.orderList.reduce((a, i) => {
+        return a += i.price
+      }, 0)
     }
   }
 })
