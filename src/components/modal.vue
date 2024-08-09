@@ -8,7 +8,7 @@ const open = ref(false)
 </script>
 
 <template>
-    <button @click="open = true">Open Modal</button>
+    <button class="open-modal" @click="open = true">Check Out!</button>
 
     <teleport to="body">
         <div v-if="open" class="modals">
@@ -44,5 +44,13 @@ const open = ref(false)
 .close {
     color: red;
     font-weight: bolder;
+}
+.open-modal{
+    padding: 20px;
+    border: none;
+    font-weight: bold;
+    color: rgb(37, 235, 37);
+    background-color: green;
+    border-radius: 50%;
 }
 </style>

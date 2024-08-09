@@ -1,10 +1,15 @@
 <template>
-    <div>
+    <div class="">
         <p> Total Price : <span>{{ totalPrice }}</span></p>
+        <div>
+            <modal />
+        </div>
     </div>
+
 </template>
 
 <script setup lang="ts">
+import modal from './modal.vue';
 const props = defineProps<{
     totalPrice: number
 }>()
@@ -17,6 +22,9 @@ div {
     border-radius: 10px;
     text-align: center;
     line-height: normal;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 p {
