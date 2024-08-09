@@ -1,5 +1,5 @@
 <template>
-    <div v-if="totalPrice != 0">
+    <div>
         <p> Total Price : <span>{{ totalPrice }}</span></p>
     </div>
 </template>
