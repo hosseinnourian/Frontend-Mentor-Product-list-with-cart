@@ -2,7 +2,7 @@
     <div class="">
         <p> Total Price : <span>{{ totalPrice }}</span></p>
         <div>
-            <modal />
+            <modal :price="totalPrice" />
         </div>
     </div>
 

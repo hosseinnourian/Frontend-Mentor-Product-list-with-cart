@@ -3,6 +3,9 @@ import { ref } from 'vue'
 
 const open = ref(false)
 
+const props = defineProps<{
+    price : number
+}>()
 
 
 </script>
@@ -12,7 +15,7 @@ const open = ref(false)
 
     <teleport to="body">
         <div v-if="open" class="modals">
-            <p>Hello from the modal!</p>
+            <p>You Hvae to Pay ${{ price }} For Orders</p>
             <button class="close-btn" @click="open = false">
                 <span class="close">
                     Close
